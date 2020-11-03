@@ -72,8 +72,8 @@ namespace WindowsFormsApp1
                         Fmax = Convert.ToInt32(255 * picture.GetPixel(a, b).GetBrightness());
                     }
                 }
-            int Gmax = 254;
-            int Gmin = 1;
+            int Gmax = 200;
+            int Gmin = 40;
             int brightness = 0;
             int gij = 0;
             for (a = 0; a < picture.Width; a++)
