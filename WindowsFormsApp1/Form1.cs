@@ -54,39 +54,5 @@ namespace WindowsFormsApp1
                 }
             pictureBox1.Image = picture;
         }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            int a, b;
-            int Fmax = -1;
-            int Fmin = 256;
-            System.Drawing.Bitmap picture = new Bitmap(pictureBox1.Image);
-            for (a = 0; a < picture.Width; a++)
-                for (b = 0; b < picture.Height; b++)
-                {
-                    if ((255 * picture.GetPixel(a, b).GetBrightness()) < Fmin)
-                    {
-                        Fmin = Convert.ToInt32(255 * picture.GetPixel(a, b).GetBrightness());
-                    }
-                    if ((255 * picture.GetPixel(a, b).GetBrightness()) > Fmax)
-                    {
-                        Fmax = Convert.ToInt32(255 * picture.GetPixel(a, b).GetBrightness());
-                    }
-                }
-            int Gmax = 254;
-            int Gmin = 1;
-            int brightness = 0;
-            int gij = 0;
-            for (a = 0; a < picture.Width; a++)
-                for (b = 0; b < picture.Height; b++)
-                {
-                    brightness = Convert.ToInt32(255 * picture.GetPixel(a, b).GetBrightness());
-                    gij = Convert.ToInt32(((float)Gmax - Gmin) / (Fmax - Fmin) * (brightness -
-                    Fmin));
-                    Color c = Color.FromArgb(255, gij, gij, gij);
-                    picture.SetPixel(a, b, c);
-                }
-            pictureBox1.Image = picture;
-        }
-
     }
 }
